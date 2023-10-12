@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MUSICAL OPPOSITES</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript">
+
+            let inc = [0,0,0,0,0];
+            let images = ['pitch','dynamics','articulation','tempo','mode'];
+
+            function toggle(n)
+            {
+                let i = document.getElementById(images[n]);
+                inc[n]++;
+                i.src = `img/${images[n]}${inc[n]%2}.png`;
+            }
+
+            function clearAll()
+            {
+                for(let i = 0; i < 5; i++)
+                {
+                    let img = document.getElementById(images[i]);
+                    img.src = 'img/blank.png'
+                    inc = [0,0,0,0,0];
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>M U S I C A L &nbsp; O P P O S I T E S</h1>
+        <div id="row1">
+            <img id="pitch" onclick="toggle(0)" src="img/blank.png">
+            <img id="dynamics" onclick="toggle(1)" src="img/blank.png">
+            <img id="articulation" onclick="toggle(2)" src="img/blank.png">
+        </div>
+        <div id="row2">
+            <img id="tempo" onclick="toggle(3)" src="img/blank.png">
+            <img id="mode" onclick="toggle(4)" src="img/blank.png">
+        </div>
+        <div>
+            <button onclick="clearAll()">C L E A R</button>
+        </div>
+    </body>
+</html>
